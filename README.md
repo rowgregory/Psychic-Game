@@ -13,7 +13,7 @@
      
 ## Demo Videos
 
- * ![](assets/images/Sonic-Word-Guess.gif?raw=true)
+ * ![](assets/images/psychicGame.gif?raw=true)
  
 ## Technologies Used
 
