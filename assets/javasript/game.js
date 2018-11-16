@@ -2,11 +2,11 @@
 // =================================================
 
 
-const wins = 0;
-const losses = 0;
-const guessesLeft = 10;
-const guessesSoFar = [];
-const computerChoice = '';
+let wins = 0;
+let losses = 0;
+let guessesLeft = 10;
+let yourGuess = []; 
+let computerChoice = '';
 
 
 
@@ -20,24 +20,45 @@ const game = () => {
 
     
 
-    checkLetter = () => {
+    const checkLetter = () => {
 
         document.onkeyup = (event) => {
 
-            let userGuess = String.fromCharCode(event.keyCode).toLowerCase();
+            var userGuess = String.fromCharCode(event.keyCode).toLowerCase();
 
-            console.log(`This is what you guessed: ${userGuess}`);
+            console.log(`This is the letter you guessed: ${userGuess}`);
 
             if (event.keyCode < 65 || event.keyCode > 90) {
                 
-                alert("I said a letter!");
+                alert("Please select a letter!");
 
-            } else if (guessesSoFar.indexOf(userGuess) >= 0) {
+            }  else if (yourGuess.indexOf(userGuess) >= 0) {
+                console.log('are we here');
                 
                 alert('You already guessed that!');
+
+            } else if (userGuess === computerChoice) {
+
+                alert('You Win');
+                
+                wins++;
+
+                document.getElementById("wins").innerHTML = wins;
+
+            } else {
+
+                guessesLeft--;
+
+                document.getElementById("guessesLeft").innerHTML = guessesLeft;
+
+                yourGuess.push(userGuess);
+
+                document.getElementById("guessesSoFar").innerHTML = yourGuess.join(", ");
             }
         } 
     };
+
+    
     checkLetter();
 };
 
