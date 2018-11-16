@@ -24,7 +24,7 @@ const game = () => {
 
         document.onkeyup = (event) => {
 
-            var userGuess = String.fromCharCode(event.keyCode).toLowerCase();
+            let userGuess = String.fromCharCode(event.keyCode).toLowerCase();
 
             console.log(`This is the letter you guessed: ${userGuess}`);
 
@@ -45,6 +45,8 @@ const game = () => {
 
                 document.getElementById("wins").innerHTML = wins;
 
+                resetGame();
+
             } else {
 
                 guessesLeft--;
@@ -54,12 +56,34 @@ const game = () => {
                 yourGuess.push(userGuess);
 
                 document.getElementById("guessesSoFar").innerHTML = yourGuess.join(", ");
+
+                allOutOfGuesses();
+            
             }
         } 
     };
 
-    
-    checkLetter();
+    const resetGame = () => {
+
+        guessesLeft = 10;
+        yourGuess = [];
+        document.getElementById('guessesLeft').innerHTML = guessesLeft;
+        document.getElementById('guessesSoFar').innerHTML = yourGuess;
+        game();
+    };
+
+    const allOutOfGuesses = () => {
+
+        if(guessesLeft === 0) {
+            alert('You Lose!');
+            losses++;
+            document.getElementById('losses').innerHTML = losses;
+            resetGame();
+
+        } else {
+            checkLetter();
+        }
+    }  
 };
 
 game();
