@@ -27,9 +27,11 @@ const game = () => {
 
       } else if (userGuess === computerChoice) {
 
+
         alert('You Win');
         wins++;
         document.getElementById("wins").innerHTML = wins;
+        
         resetGame();
 
       } else {

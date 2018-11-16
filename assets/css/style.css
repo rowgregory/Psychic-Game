@@ -1,0 +1,18 @@
+body{
+    background-image: url(../images/heartChakra.jpg);
+    background-repeat: no-repeat;
+    background-size:cover;
+    background-attachment: fixed;
+    background-position: center;
+    margin:0;
+    padding:0;
+
+}
+
+nav, h2, .stats {
+    background: rgba(0, 0, 0, 0.7);
+    color:white;
+    padding:10px;
+    text-align: center;
+   
+}
