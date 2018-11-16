@@ -9,7 +9,12 @@ var guessesSoFar =[];
 
 // lets the computer select a random letter from the alphabet
 var computerGuess = computerChoice[Math.floor(Math.random() * computerChoice.length)];
-console.log(computerGuess);
+console.log(`This is the computer guess: ${computerGuess}`);
+
+window.onload = function() {
+    document.getElementById('wins').innerHTML = `Wins: ${wins}`
+    document.getElementById('losses').innerHTML = `Losses: ${losses}`
+}
 
 
  
@@ -29,8 +34,9 @@ console.log(computerGuess);
         
         if (userGuess === computerGuess) {
             win();
+            alert('You chose the right letter!')
             guessesLeft = 10;
-           
+            guessesSoFar =[];
         } else {
             lose();
         }
@@ -51,6 +57,7 @@ console.log(computerGuess);
 
         function win() {
             wins++;
+            document.getElementById('wins').innerHTML = `Wins: ${wins}`
             resetGame();  
         }
 
@@ -61,20 +68,20 @@ console.log(computerGuess);
         function resetGame() {
             guessesLeft = 10;
             computerGuess = computerChoice[Math.floor(Math.random() * computerChoice.length)];
-            console.log(computerGuess);
-            guessesSoFar = [];  
+            console.log(`This is the computer guess: ${computerGuess}`);
+            guessesSoFar =[];  
         } 
         
-        var html =
-            "<h1>Guess what I'm thinking!" +
-            "<p>Wins: " + wins + "</p>" +
-            "<p>Losses: " + losses + "</p>" +
-            "<p>Guesses Left: " + guessesLeft + "</p>" +
-            "<p>Guesses so far: " + guessesSoFar.join(',') 
+        
+            
+            
+            // "<p>Losses: " + losses + "</p>" +
+            // "<p>Guesses Left: " + guessesLeft + "</p>" +
+            // "<p>Guesses so far: " + guessesSoFar.join(', ') 
             
 
-            guessesSoFar.innerHTML = guessesSoFar.join(',');
-            document.getElementById("psychicAct").innerHTML = html;  
+            // guessesSoFar.innerHTML = guessesSoFar.join(',');
+            // document.getElementById("psychicAct").innerHTML = html;  
     }
         
     
